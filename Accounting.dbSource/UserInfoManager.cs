@@ -11,11 +11,34 @@ namespace Accounting.dbSource
 {
     public class UserInfoManager
     {
-        public static DataRow GetUserInfoListbyAccount(string account)
+        public static DataTable GetUserInfoListbyAccount(string account)
         {
             string connectionstring = dbHelper.Getconnectionstring();
             string dbCommandstring = @"SELECT [ID], [Account], [PWD],
-                                              [Name], [Email]
+                                              [Name], [Email], [UserLevel],
+                                              [CreateDate]
+                                       FROM   [UserInfo]
+                                       WHERE  [Account] = @account";
+
+            List<SqlParameter> list = new List<SqlParameter>();
+            list.Add(new SqlParameter("@account", account));
+
+            try
+            {
+                return dbHelper.ReadDataTable(connectionstring, dbCommandstring, list);
+            }
+            catch (Exception ex)
+            {
+                Logger.Writelog(ex);
+                return null;
+            }
+        }
+        public static DataRow GetUserInfobyAccount(string account)
+        {
+            string connectionstring = dbHelper.Getconnectionstring();
+            string dbCommandstring = @"SELECT [ID], [Account], [PWD],
+                                              [Name], [Email], [UserLevel],
+                                              [CreateDate]
                                        FROM   [UserInfo]
                                        WHERE  [Account] = @account";
 
@@ -25,6 +48,25 @@ namespace Accounting.dbSource
             try
             {
                 return dbHelper.ReadDataRow(connectionstring, dbCommandstring, list);
+            }
+            catch (Exception ex)
+            {
+                Logger.Writelog(ex);
+                return null;
+            }
+        }
+        public static DataTable GetUserInfoList()
+        {
+            string connectionstring = dbHelper.Getconnectionstring();
+            string dbCommandstring = @"SELECT [Account], [Name], [Email], [UserLevel],
+                                              [CreateDate]
+                                       FROM   [UserInfo]";
+
+            List<SqlParameter> list = new List<SqlParameter>();
+
+            try
+            {
+                return dbHelper.ReadDataTable(connectionstring, dbCommandstring, list);
             }
             catch (Exception ex)
             {

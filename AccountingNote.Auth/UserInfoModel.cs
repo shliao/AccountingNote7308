@@ -12,6 +12,8 @@ namespace AccountingNote.Auth
         public string Account { get; set; }
         public string Name { get; set; }
         public string Email { get; set; }
+        public string CreateDate { get; set; }
+        public string UserLevel { get; set; }
 
     }
 }
