@@ -11,6 +11,7 @@
     <form id="form1" runat="server">
         <div>
             <p>測試</p>
+            <a href="Login.aspx">Login</a>
         </div>
     </form>
 </body>
