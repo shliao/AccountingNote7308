@@ -77,6 +77,8 @@ namespace AccountingNote7308.SystemAdmin
                 if (string.Compare(uid, uidtxt, true) == 0)
                 {
                     UserInfoManager.DeleteUser(uid);
+                    this.Session.Clear();
+                    Response.Redirect("/Login.aspx");
                 }
                 else
                 {
