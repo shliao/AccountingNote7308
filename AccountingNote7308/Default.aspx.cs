@@ -13,11 +13,10 @@ namespace AccountingNote7308
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
-            var dt1 = DfManager.GetStbkpg();
-            var dt2 = DfManager.GetEdbkpg();
-            var dt3 = DfManager.GetCount();
-            var dt4 = DfManager.GetMembers();
+            var dt1 = AccountingManager.GetStartData();
+            var dt2 = AccountingManager.GetEndData();
+            var dt3 = AccountingManager.GetDataCount();
+            var dt4 = AccountingManager.GetUser();
 
             var dt5 = dt3.Rows[0]["Amount"].ToString();
             var dt6 = dt4.Rows[0]["Name"].ToString();

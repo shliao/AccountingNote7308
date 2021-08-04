@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace Accounting.dbSource
 {
-    public class DfManager
+    public class AccountingManager
     {
-        public static DataTable GetStbkpg()
+        public static DataTable GetStartData()
         {
             string ConnStr = dbHelper.Getconnectionstring();
             string dbCommand =
@@ -21,7 +21,7 @@ namespace Accounting.dbSource
 
             try
             {
-                return ReadDataTable(ConnStr, dbCommand);
+                return dbHelper.GetDataTable(ConnStr, dbCommand);
             }
             catch (Exception ex)
             {
@@ -29,8 +29,7 @@ namespace Accounting.dbSource
                 return null;
             }
         }
-
-        public static DataTable GetEdbkpg()
+        public static DataTable GetEndData()
         {
             string ConnStr = dbHelper.Getconnectionstring();
             string dbCommand =
@@ -41,7 +40,7 @@ namespace Accounting.dbSource
 
             try
             {
-                return ReadDataTable(ConnStr, dbCommand);
+                return dbHelper.GetDataTable(ConnStr, dbCommand);
             }
             catch (Exception ex)
             {
@@ -49,8 +48,7 @@ namespace Accounting.dbSource
                 return null;
             }
         }
-
-        public static DataTable GetCount ()
+        public static DataTable GetDataCount()
         {
             string ConnStr = dbHelper.Getconnectionstring();
             string dbCommand =
@@ -60,7 +58,7 @@ namespace Accounting.dbSource
 
             try
             {
-                return ReadDataTable(ConnStr, dbCommand);
+                return dbHelper.GetDataTable(ConnStr, dbCommand);
             }
             catch (Exception ex)
             {
@@ -68,8 +66,7 @@ namespace Accounting.dbSource
                 return null;
             }
         }
-
-        public static DataTable GetMembers ()
+        public static DataTable GetUser()
         {
             string ConnStr = dbHelper.Getconnectionstring();
             string dbCommand =
@@ -79,33 +76,12 @@ namespace Accounting.dbSource
 
             try
             {
-                return ReadDataTable(ConnStr, dbCommand);
+                return dbHelper.GetDataTable(ConnStr, dbCommand);
             }
             catch (Exception ex)
             {
                 Logger.Writelog(ex);
                 return null;
-            }
-        }
-
-
-
-        public static DataTable ReadDataTable(string connectionstring, string dbCommandstring)
-        {
-            using (SqlConnection connection = new SqlConnection(connectionstring))
-            {
-                using (SqlCommand command = new SqlCommand(dbCommandstring, connection))
-                {
-                   
-                    connection.Open();
-                    SqlDataReader reader = command.ExecuteReader();
-
-                    DataTable dt = new DataTable();
-                    dt.Load(reader);
-                    reader.Close();
-
-                    return dt;
-                }
             }
         }
     }
