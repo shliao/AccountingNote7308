@@ -13,9 +13,9 @@
                     <br />
                     金額:
                     <asp:TextBox ID="txtAmount" runat="server" TextMode="Number"></asp:TextBox> <br />
-                    說明:
+                    標題:
                     <asp:TextBox ID="txtCaption" runat="server"></asp:TextBox><br />
-                    內容描述:
+                    說明:
                     <asp:TextBox ID="txtDesc" runat="server" TextMode="MultiLine"></asp:TextBox><br />
                     <asp:Button ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click" /><br />
                     <asp:Button ID="btnDelete" runat="server" Text="Delete" OnClick="btnDelete_Click" />

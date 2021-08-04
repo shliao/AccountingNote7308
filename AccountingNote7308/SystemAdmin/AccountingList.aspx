@@ -18,7 +18,7 @@
                 </asp:TemplateField>
 
                 <asp:BoundField HeaderText="建立日期" DataField="CreateDate" DataFormatString="{0:yyyy-MM-dd}"/>
-                <asp:TemplateField HeaderText="Act">
+                <asp:TemplateField HeaderText="編輯">
                     <ItemTemplate>
                         <a href="/SystemAdmin/AccountingDetail.aspx?ID=<%# Eval("ID") %>">Edit</a>
                     </ItemTemplate>
@@ -27,7 +27,7 @@
            </asp:GridView>          
                     <asp:PlaceHolder ID="plcNoData" runat="server" Visible="false">
                         <p style="color:red">
-                            No data in your Accounting Note.
+                            此帳號沒有任何流水帳紀錄
                         </p>
                     </asp:PlaceHolder>
                  </td>

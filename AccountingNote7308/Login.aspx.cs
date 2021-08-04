@@ -12,27 +12,20 @@ namespace AccountingNote7308
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
         }
-
         protected void btnLogin_Click(object sender, EventArgs e)
         {
             string inp_Account = this.txtAccount.Text; 
             string inp_PWD = this.txtPWD.Text;
 
-            string msg;
-            if (!AuthManager.tryLogin(inp_Account, inp_PWD, out msg))
+            string errormsg;
+            if (!AuthManager.tryLogin(inp_Account, inp_PWD, out errormsg))
             {
-                this.ltlMsg.Text = msg;
+                this.ltlMsg.Text = errormsg;
                 return;
             }
 
             Response.Redirect("/SystemAdmin/UserInfo.aspx");
-        }
-
-        protected void Button1_Click(object sender, EventArgs e)
-        {
-            
         }
     }
 }
