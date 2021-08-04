@@ -151,5 +151,9 @@ namespace AccountingNote7308.SystemAdmin
                 return false;
         }
 
+        protected void returnbtn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/SystemAdmin/UserList.aspx");
+        }
     }
 }

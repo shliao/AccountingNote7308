@@ -4,6 +4,9 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h2>會員管理</h2>
     <table border="1">
+        <tr>
+            <td colspan="2" align="right"><asp:Button ID="returnbtn" runat="server" Text="取消變更" Onclick="returnbtn_Click"/></td>
+        </tr>
         <tr><td align="center">帳號</td>
             <td><asp:TextBox ID="acctxtbox" runat="server"></asp:TextBox></td>
         </tr>
