@@ -17,9 +17,9 @@
                     <asp:TextBox ID="txtCaption" runat="server"></asp:TextBox><br />
                     說明:
                     <asp:TextBox ID="txtDesc" runat="server" TextMode="MultiLine"></asp:TextBox><br />
-                    <asp:Button ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click" /><br />
-                    <asp:Button ID="btnDelete" runat="server" Text="Delete" OnClick="btnDelete_Click" />
-                    <asp:Literal ID="ltMsg" runat="server"></asp:Literal>
+                    <asp:Literal ID="ltMsg" runat="server"></asp:Literal><br />
+                    <asp:Button ID="btnSave" runat="server" Text="保存" OnClick="btnSave_Click" />&nbsp;&nbsp;
+                    <asp:Button ID="btnDelete" runat="server" Text="刪除" OnClick="btnDelete_Click" />
                 </td>
             </tr>
         </table>

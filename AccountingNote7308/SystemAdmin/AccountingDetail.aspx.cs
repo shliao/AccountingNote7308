@@ -45,7 +45,7 @@ namespace AccountingNote7308.SystemAdmin
 
                         if (drAccounting == null)
                         {
-                            this.ltMsg.Text = "Data doesn't exist";
+                            this.ltMsg.Text = "記帳不存在";
                             this.btnSave.Visible = false;
                             this.btnDelete.Visible = false;
                         }
@@ -59,7 +59,7 @@ namespace AccountingNote7308.SystemAdmin
                     }
                     else
                     {
-                        this.ltMsg.Text = "ID is required.";
+                        this.ltMsg.Text = "需要使用者的ID";
                         this.btnSave.Visible = false;
                         this.btnDelete.Visible = false;
                     }
@@ -113,23 +113,23 @@ namespace AccountingNote7308.SystemAdmin
             if (this.ddIActType.SelectedValue != "0" &&
                 this.ddIActType.SelectedValue != "1")
             {
-                msglist.Add("Type must be 0 or 1.");
+                msglist.Add("類別必須是1或0");
             }
             
             if (string.IsNullOrWhiteSpace(this.txtAmount.Text))
-                msglist.Add("Amount is required");
+                msglist.Add("必須是金額");
 
             else
             {
                 int tempInt;
                 if (!int.TryParse(this.txtAmount.Text, out tempInt))  
                 {
-                    msglist.Add("Amount must be a number.");
+                    msglist.Add("金額必須是數字");
                 }
 
                 if (tempInt < 0 || tempInt > 1000000)
                 {
-                    msglist.Add("Amount must between 0 and 1,000,000.");
+                    msglist.Add("金額應在0至1,000,000之間");
                 }
             }
 
