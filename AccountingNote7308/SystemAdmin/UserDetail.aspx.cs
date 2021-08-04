@@ -74,7 +74,6 @@ namespace AccountingNote7308.SystemAdmin
             Response.Redirect("/SystemAdmin/UserList.aspx");
 
         }
-
         protected void Savebtn_Click(object sender, EventArgs e)
         {
             List<string> msgList = new List<string>();
@@ -117,7 +116,7 @@ namespace AccountingNote7308.SystemAdmin
             }
             else
             {
-                UserInfoManager.UpdateUser(uid, nametxt, emailtxt);
+                UserInfoManager.UpdateUser(uidtxt, nametxt, emailtxt);
             }
 
             Response.Redirect("/SystemAdmin/UserList.aspx");

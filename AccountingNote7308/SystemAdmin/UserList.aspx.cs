@@ -21,6 +21,7 @@ namespace AccountingNote7308.SystemAdmin
             }
 
             var currentUser = AuthManager.GetCurrentUser();
+            string uid = currentUser.ID;
 
             if (currentUser == null)
             {
