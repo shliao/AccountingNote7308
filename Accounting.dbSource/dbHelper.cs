@@ -9,7 +9,7 @@ using System.Data.SqlClient;
 
 namespace Accounting.dbSource
 {
-    class dbHelper
+    public class dbHelper
     {
         public static string Getconnectionstring()
         {
@@ -84,6 +84,22 @@ namespace Accounting.dbSource
                 }
             }
         }
+        public static DataTable GetDataTable(string connectionstring, string dbCommandstring)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionstring))
+            {
+                using (SqlCommand command = new SqlCommand(dbCommandstring, connection))
+                {
+                    connection.Open();
+                    SqlDataReader reader = command.ExecuteReader();
 
+                    DataTable dt = new DataTable();
+                    dt.Load(reader);
+                    reader.Close();
+
+                    return dt;
+                }
+            }
+        }
     }
 }

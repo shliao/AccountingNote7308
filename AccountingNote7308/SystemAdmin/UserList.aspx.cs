@@ -28,7 +28,7 @@ namespace AccountingNote7308.SystemAdmin
                 return;
             }
 
-            var dt = UserInfoManager.GetUserInfoList();
+            var dt = UserInfoManager.GetUserInfoList_Order();
 
             if (dt.Rows.Count > 0)
             {
@@ -45,6 +45,11 @@ namespace AccountingNote7308.SystemAdmin
                 this.GV_UserList.Visible = false;
                 this.plc_noUser.Visible = true;
             }
+        }
+
+        protected void addUserbtn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/SystemAdmin/UserDetail.aspx");
         }
         protected void GV_UserList_RowDataBound(object sender, GridViewRowEventArgs e)
         {
@@ -103,7 +108,6 @@ namespace AccountingNote7308.SystemAdmin
             }
             return dtPaged;
         }
-
 
     }
 }
