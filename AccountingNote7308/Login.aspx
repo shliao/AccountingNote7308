@@ -16,7 +16,7 @@
         <asp:PlaceHolder ID="plcLogin" runat="server" Visible="false"></asp:PlaceHolder>
         Account:<asp:TextBox ID="txtAccount" runat="server"></asp:TextBox>
         <br />
-        Password<asp:TextBox ID="txtPWD" runat="server"></asp:TextBox>
+        Password<asp:TextBox ID="txtPWD" runat="server" TextMode="Password"></asp:TextBox>
         <br />
         <asp:Button ID="btnLogin" runat="server" Text="Login" OnClick="btnLogin_Click"/>
         <asp:Literal ID="ltlMsg" runat="server"></asp:Literal>
