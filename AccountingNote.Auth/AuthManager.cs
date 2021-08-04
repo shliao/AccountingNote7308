@@ -28,7 +28,7 @@ namespace AccountingNote.Auth
                 return null;
             }
 
-            DataRow dr = UserInfoManager.GetUserInfoListbyAccount(account);
+            DataRow dr = UserInfoManager.GetUserInfobyAccount(account);
 
             if (dr == null)
                 return null;
@@ -38,6 +38,8 @@ namespace AccountingNote.Auth
             model.Account = dr["Account"].ToString();
             model.Name = dr["Name"].ToString();
             model.Email = dr["Email"].ToString();
+            model.UserLevel = dr["UserLevel"].ToString();
+            model.CreateDate = dr["CreateDate"].ToString();
 
             return model;
         }
@@ -53,7 +55,7 @@ namespace AccountingNote.Auth
                 return false;
             }
 
-            var dr = UserInfoManager.GetUserInfoListbyAccount(account);
+            var dr = UserInfoManager.GetUserInfobyAccount(account);
 
             if (dr == null)
             {

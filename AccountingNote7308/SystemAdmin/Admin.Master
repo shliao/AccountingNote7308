@@ -12,8 +12,21 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-            </asp:ContentPlaceHolder>
+            <table>
+            <tr>
+                <td colspan="2"><h2>流水帳管理系統 - 後台</h2></td>
+            </tr>
+            <tr>
+                <td><a href="UserInfo.aspx">使用者資訊</a>
+                    <br />
+                    <a href="AccountingList.aspx">流水帳管理</a>
+                    <br />
+                    <a href="UserList.aspx">會員管理</a>
+                </td>
+                <td>
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+                </td>
 <%--            後台用版面設計--%>
         </div>
     </form>

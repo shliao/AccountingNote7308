@@ -76,6 +76,7 @@
     <Content Include="SystemAdmin\UserInfo.aspx" />
     <Content Include="SystemAdmin\UserList.aspx" />
     <Content Include="SystemAdmin\UserPassword.aspx" />
+    <Content Include="UserControl\ucPager.ascx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -153,6 +154,13 @@
     <Compile Include="SystemAdmin\UserPassword.aspx.designer.cs">
       <DependentUpon>UserPassword.aspx</DependentUpon>
     </Compile>
+    <Compile Include="UserControl\ucPager.ascx.cs">
+      <DependentUpon>ucPager.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\ucPager.ascx.designer.cs">
+      <DependentUpon>ucPager.ascx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Main.Master" />
@@ -175,7 +183,7 @@
       <Name>Accounting.dbSource</Name>
     </ProjectReference>
     <ProjectReference Include="..\AccountingNote.Auth\AccountingNote.Auth.csproj">
-      <Project>{F87D8932-AB7B-4529-A302-59EEAC834A4E}</Project>
+      <Project>{f87d8932-ab7b-4529-a302-59eeac834a4e}</Project>
       <Name>AccountingNote.Auth</Name>
     </ProjectReference>
   </ItemGroup>
