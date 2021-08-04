@@ -5,7 +5,7 @@
     <h2>會員管理</h2>
     <table border="1">
         <tr>
-            <td colspan="2" align="right"><asp:Button ID="returnbtn" runat="server" Text="取消變更" Onclick="returnbtn_Click"/></td>
+            <td colspan="2" align="right"><asp:Button ID="returnbtn" runat="server" Text="返回" Onclick="returnbtn_Click"/></td>
         </tr>
         <tr><td align="center">帳號</td>
             <td><asp:TextBox ID="acctxtbox" runat="server"></asp:TextBox></td>
@@ -26,8 +26,8 @@
             <td><asp:Label ID="timeLabel" runat="server"></asp:Label></td>
         </tr>
         <tr><td>
-            <asp:Button ID="Savebtn" runat="server" Text="Save" OnClick="Savebtn_Click" />&nbsp;&nbsp;
-            <asp:Button ID="Deletebtn" runat="server" Text="Delete" OnClick="Deletebtn_Click"/>
+            <asp:Button ID="Savebtn" runat="server" Text="保存" OnClick="Savebtn_Click" />&nbsp;&nbsp;
+            <asp:Button ID="Deletebtn" runat="server" Text="刪除" OnClick="Deletebtn_Click"/>
             </td>
             <td align="right">
             <asp:Label ID="pwdLabel" runat="server" style="font-size:8pt; color:coral"></asp:Label>

@@ -46,7 +46,7 @@ namespace AccountingNote7308.SystemAdmin
 
                     if (drAccounting == null)
                     {
-                        this.LitMsg.Text = "User not exist.";
+                        this.LitMsg.Text = "使用者不存在";
                         this.Savebtn.Visible = false;
                         this.Deletebtn.Visible = false;
                     }
@@ -179,7 +179,11 @@ namespace AccountingNote7308.SystemAdmin
         }
         protected void pwdbtn_Click(object sender, EventArgs e)
         {
-            Response.Redirect("UserPassword.aspx");
+            var currentUser = AuthManager.GetCurrentUser();
+
+            string uid = currentUser.ID;
+
+            Response.Redirect($"UserPassword.aspx?UID={uid}");
         }
     }
 }

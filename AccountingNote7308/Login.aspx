@@ -18,7 +18,7 @@
         <br />
         密碼<asp:TextBox ID="txtPWD" runat="server" TextMode="Password"></asp:TextBox>
         <br />
-        <asp:Button ID="btnLogin" runat="server" Text="Login" OnClick="btnLogin_Click"/>
+        <asp:Button ID="btnLogin" runat="server" Text="登入" OnClick="btnLogin_Click"/>
         <asp:Literal ID="ltlMsg" runat="server"></asp:Literal>
         </asp:PlaceHolder>
     </form>
