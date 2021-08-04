@@ -15,23 +15,30 @@ namespace AccountingNote7308.SystemAdmin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (this.Session["UserLoginInfo"] == null)
+            this.ltlCheckInput.Text = string.Empty;
+            this.ltlMsg.Text = string.Empty;
+            this.ltlMsg2.Text = string.Empty;
+
+            if (!IsPostBack)
             {
-                Response.Redirect("/Login.aspx");
-                return;
+                if (this.Session["UserLoginInfo"] == null)
+                {
+                    Response.Redirect("/Login.aspx");
+                    return;
+                }
+
+                string account = this.Session["UserLoginInfo"] as string;
+                DataRow dr = UserInfoManager.GetUserInfobyAccount(account);
+
+                if (dr == null)
+                {
+                    this.Session["UserLoginInfo"] = null;
+                    Response.Redirect("/Login.aspx");
+                    return;
+                }
+
+                this.ltAccount.Text = dr["Account"].ToString();
             }
-
-            string account = this.Session["UserLoginInfo"] as string;
-            DataRow dr = UserInfoManager.GetUserInfobyAccount(account);
-
-            if (dr == null)
-            {
-                this.Session["UserLoginInfo"] = null;
-                Response.Redirect("/Login.aspx");
-                return;
-            }
-
-            this.ltAccount.Text = dr["Account"].ToString();
         }
 
         protected void btnChange_Click(object sender, EventArgs e)
@@ -39,46 +46,66 @@ namespace AccountingNote7308.SystemAdmin
             string account = this.Session["UserLoginInfo"] as string;
             DataRow dr = UserInfoManager.GetUserInfobyAccount(account);
 
-            if (dr == null)
-            {
-                this.Session["UserLoginInfo"] = null;
-                Response.Redirect("/Login.aspx");
-                return;
-            }
-
-            this.ltAccount.Text = dr["Account"].ToString();
-
             string dbPWD = dr["PWD"].ToString();
             string iptPWD = txbPWD.Text;
-
-            if (dbPWD == iptPWD)
-            {
-                this.txbPWD.Text = dr["PWD"].ToString();
-            }
-            else
-            {
-                this.txbPWD.Text = string.Empty;
-                Response.Redirect("UserPassword.aspx");
-                return;
-            }
-
             string iptNewPWD = txbNewPWD.Text;
             string iptNewPWD_Check = txbNewPWD_Check.Text;
 
-            if (iptNewPWD == iptNewPWD_Check)
+            List<string> msgList = new List<string>();
+            if (!CheckInput(out msgList))
             {
-                UserInfoManager.UpdatePWD(dr["Account"].ToString(), iptNewPWD_Check);
-                this.Session["UserLoginInfo"] = null;
-                Response.Redirect("/Login.aspx");
+                this.ltlCheckInput.Text = string.Join("<br/>", msgList);
                 return;
             }
             else
             {
-                this.txbNewPWD.Text = string.Empty;
-                this.txbNewPWD_Check.Text = string.Empty;
-                Response.Redirect("UserPassword.aspx");
-                return;
+                if (dbPWD == iptPWD)
+                {
+                    this.txbPWD.Text = dr["PWD"].ToString();
+                }
+                else
+                {
+                    this.ltlMsg.Text = "<span style='color:red'>原密碼輸入錯誤，請重新確認。</span>";
+                    return;
+                }
+
+                if (iptNewPWD == iptNewPWD_Check)
+                {
+                    UserInfoManager.UpdatePWD(dr["Account"].ToString(), iptNewPWD_Check);
+                    this.Session["UserLoginInfo"] = null;
+                    Response.Redirect("/Login.aspx");
+                    return;
+                }
+                else
+                {
+                    this.ltlMsg2.Text = "<span style='color:red'>新密碼輸入不一致，請重新確認。</span>";
+                    return;
+                }
+            }            
+        }
+
+        private bool CheckInput(out List<string> errorMsgList)
+        {
+            List<string> msgList = new List<string>();
+
+            if (string.IsNullOrWhiteSpace(this.txbPWD.Text) && string.IsNullOrEmpty(this.txbPWD.Text))
+            {
+                msgList.Add("<span style='color:red'>請輸入原密碼。</span>");
             }
+            if (string.IsNullOrWhiteSpace(this.txbNewPWD.Text) && string.IsNullOrEmpty(this.txbNewPWD.Text))
+            {
+                msgList.Add("<span style='color:red'>請輸入新密碼。</span>");
+            }
+            if (string.IsNullOrWhiteSpace(this.txbNewPWD_Check.Text) && string.IsNullOrEmpty(this.txbNewPWD_Check.Text))
+            {
+                msgList.Add("<span style='color:red'>請輸入確認密碼。</span>");
+            }
+            errorMsgList = msgList;
+
+            if (msgList.Count == 0)
+                return true;
+            else
+                return false;
         }
     }
 }

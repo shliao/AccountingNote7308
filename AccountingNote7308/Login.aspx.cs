@@ -13,15 +13,15 @@ namespace AccountingNote7308
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (this.Session["UserLoginInfo"] != null)
-            {
-                this.plcLogin.Visible = false;
-                Response.Redirect("SystemAdmin / Userinfo.aspx");
-            }
-            else
-            {
-                this.plcLogin.Visible = true;
-            }
+            //if (this.Session["UserLoginInfo"] != null)
+            //{
+            //    this.plcLogin.Visible = false;
+            //    Response.Redirect("SystemAdmin / Userinfo.aspx");
+            //}
+            //else
+            //{
+            //    this.plcLogin.Visible = true;
+            //}
         }
 
         protected void btnLogin_Click(object sender, EventArgs e)

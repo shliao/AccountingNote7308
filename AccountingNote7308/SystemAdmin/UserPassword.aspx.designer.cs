@@ -33,6 +33,15 @@ namespace AccountingNote7308.SystemAdmin
         protected global::System.Web.UI.WebControls.TextBox txbPWD;
 
         /// <summary>
+        /// ltlMsg 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal ltlMsg;
+
+        /// <summary>
         /// txbNewPWD 控制項。
         /// </summary>
         /// <remarks>
@@ -42,6 +51,15 @@ namespace AccountingNote7308.SystemAdmin
         protected global::System.Web.UI.WebControls.TextBox txbNewPWD;
 
         /// <summary>
+        /// ltlMsg2 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal ltlMsg2;
+
+        /// <summary>
         /// txbNewPWD_Check 控制項。
         /// </summary>
         /// <remarks>
@@ -49,6 +67,15 @@ namespace AccountingNote7308.SystemAdmin
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txbNewPWD_Check;
+
+        /// <summary>
+        /// ltlCheckInput 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal ltlCheckInput;
 
         /// <summary>
         /// btnChange 控制項。

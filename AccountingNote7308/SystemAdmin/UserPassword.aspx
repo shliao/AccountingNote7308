@@ -13,12 +13,16 @@
         <tr>
             <th>原密碼:</th>
             <td>
-                <asp:TextBox ID="txbPWD" runat="server" TextMode="Password"></asp:TextBox></td>
+                <asp:TextBox ID="txbPWD" runat="server" TextMode="Password"></asp:TextBox>
+                <asp:Literal ID="ltlMsg" runat="server"></asp:Literal>
+            </td>
         </tr>
         <tr>
             <th>新密碼:</th>
             <td>
-                <asp:TextBox ID="txbNewPWD" runat="server" TextMode="Password"></asp:TextBox></td>
+                <asp:TextBox ID="txbNewPWD" runat="server" TextMode="Password"></asp:TextBox>
+                <asp:Literal ID="ltlMsg2" runat="server"></asp:Literal>
+            </td>
         </tr>
         <br />
         <tr>
@@ -27,6 +31,8 @@
                 <asp:TextBox ID="txbNewPWD_Check" runat="server" TextMode="Password"></asp:TextBox></td>
         </tr>
     </table>
+    <br />
+    <asp:Literal ID="ltlCheckInput" runat="server"></asp:Literal>
     <br />
     <asp:Button ID="btnChange" runat="server" Text="變更密碼" OnClick="btnChange_Click" />
 </asp:Content>
