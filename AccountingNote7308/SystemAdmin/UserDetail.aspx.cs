@@ -34,30 +34,32 @@ namespace AccountingNote7308.SystemAdmin
                 {
                     this.Deletebtn.Visible = false;
                     this.pwdbtn.Visible = false;
+                    this.pwdLabel.Text =
+                        "預設密碼為12345，帳號建立後請變更密碼";
                 }
                 else
                 {
                     this.Deletebtn.Visible = true;
                     string uid = this.Request.QueryString["UID"];
 
-                        var drAccounting = UserInfoManager.GetUserInfobyUID(uid);
+                    var drAccounting = UserInfoManager.GetUserInfobyUID(uid);
 
-                        if (drAccounting == null)
-                        {
-                            this.LitMsg.Text = "User not exist.";
-                            this.Savebtn.Visible = false;
-                            this.Deletebtn.Visible = false;
-                        }
-                        else
-                        {
-                            this.acctxtbox.Text = drAccounting["Account"].ToString();
-                            this.acctxtbox.Enabled = false;
-                            this.nametxtbox.Text = drAccounting["Name"].ToString();
-                            this.emailtxtbox.Text = drAccounting["Email"].ToString();
-                            this.ddl_Level.Text = drAccounting["UserLevel"].ToString();
-                            this.ddl_Level.Enabled = false;
-                            this.timeLabel.Text = drAccounting["CreateDate"].ToString();
-                        }
+                    if (drAccounting == null)
+                    {
+                        this.LitMsg.Text = "User not exist.";
+                        this.Savebtn.Visible = false;
+                        this.Deletebtn.Visible = false;
+                    }
+                    else
+                    {
+                        this.acctxtbox.Text = drAccounting["Account"].ToString();
+                        this.acctxtbox.Enabled = false;
+                        this.nametxtbox.Text = drAccounting["Name"].ToString();
+                        this.emailtxtbox.Text = drAccounting["Email"].ToString();
+                        this.ddl_Level.Text = drAccounting["UserLevel"].ToString();
+                        this.ddl_Level.Enabled = false;
+                        this.timeLabel.Text = drAccounting["CreateDate"].ToString();
+                    }
                 }
             }
         }

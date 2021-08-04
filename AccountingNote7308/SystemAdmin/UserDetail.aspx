@@ -25,9 +25,12 @@
         <tr><td align="center">建立時間</td>
             <td><asp:Label ID="timeLabel" runat="server"></asp:Label></td>
         </tr>
-        <tr><td colspan="2">
+        <tr><td>
             <asp:Button ID="Savebtn" runat="server" Text="Save" OnClick="Savebtn_Click" />&nbsp;&nbsp;
             <asp:Button ID="Deletebtn" runat="server" Text="Delete" OnClick="Deletebtn_Click"/>
+            </td>
+            <td align="right">
+            <asp:Label ID="pwdLabel" runat="server" style="font-size:8pt; color:coral"></asp:Label>
             </td>
         </tr>
     </table>
