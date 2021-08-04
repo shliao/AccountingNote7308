@@ -48,10 +48,10 @@ namespace AccountingNote7308.SystemAdmin
 
             this.ltAccount.Text = dr["Account"].ToString();
 
-            string a = dr["PWD"].ToString();
-            string b = txbPWD.Text;
+            string dbPWD = dr["PWD"].ToString();
+            string iptPWD = txbPWD.Text;
 
-            if (a == b)
+            if (dbPWD == iptPWD)
             {
                 this.txbPWD.Text = dr["PWD"].ToString();
             }
@@ -62,12 +62,12 @@ namespace AccountingNote7308.SystemAdmin
                 return;
             }
 
-            string c = txbNewPWD.Text;
-            string d = txbNewPWD_Check.Text;
+            string iptNewPWD = txbNewPWD.Text;
+            string iptNewPWD_Check = txbNewPWD_Check.Text;
 
-            if (c == d)
+            if (iptNewPWD == iptNewPWD_Check)
             {
-                UpdatePWD(dr["Account"].ToString(), d);
+                UserInfoManager.UpdatePWD(dr["Account"].ToString(), iptNewPWD_Check);
                 this.Session["UserLoginInfo"] = null;
                 Response.Redirect("/Login.aspx");
                 return;
@@ -79,50 +79,6 @@ namespace AccountingNote7308.SystemAdmin
                 Response.Redirect("UserPassword.aspx");
                 return;
             }
-        }
-
-        public static bool UpdatePWD(string Account, string PWD)
-        {
-            string connStr = GetConnectionString2();
-            string dbCommand =
-                $@"UPDATE [UserInfo]
-                   SET
-                      PWD = @pwd
-                  WHERE
-                      Account = @account
-                ";
-
-            using (SqlConnection conn = new SqlConnection(connStr))
-            {
-                using (SqlCommand comm = new SqlCommand(dbCommand, conn))
-                {
-                    comm.Parameters.AddWithValue("@account", Account);
-                    comm.Parameters.AddWithValue("@pwd", PWD);
-                    
-                    try
-                    {
-                        conn.Open();
-                        int effectRows = comm.ExecuteNonQuery();
-
-                        if (effectRows == 1)
-                            return true;
-                        else
-                            return false;
-                    }
-                    catch (Exception ex)
-                    {
-                        Logger.Writelog(ex);
-                        return false;
-                    }
-                }
-            }
-        }
-
-        public static string GetConnectionString2()
-        {
-            //string val = ConfigurationManager.AppSettings["ConnectionString"];
-            string val2 = ConfigurationManager.ConnectionStrings["Default Connection"].ConnectionString;
-            return val2;
         }
     }
 }
