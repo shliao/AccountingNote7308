@@ -173,10 +173,46 @@ namespace Accounting.dbSource
                 return false;
             }
         }
+        public static bool UpdatePWD(string Account, string PWD)
+        {
+            string connStr = dbHelper.Getconnectionstring();
+            string dbCommand =
+                $@"UPDATE [UserInfo]
+                   SET
+                      PWD = @pwd
+                  WHERE
+                      Account = @account
+                ";
+
+            using (SqlConnection conn = new SqlConnection(connStr))
+            {
+                using (SqlCommand comm = new SqlCommand(dbCommand, conn))
+                {
+                    comm.Parameters.AddWithValue("@account", Account);
+                    comm.Parameters.AddWithValue("@pwd", PWD);
+
+                    try
+                    {
+                        conn.Open();
+                        int effectRows = comm.ExecuteNonQuery();
+
+                        if (effectRows == 1)
+                            return true;
+                        else
+                            return false;
+                    }
+                    catch (Exception ex)
+                    {
+                        Logger.Writelog(ex);
+                        return false;
+                    }
+                }
+            }
+        }
         public static List<string> GetAllAccountList()
         {
             DataTable dt = GetAllAccount();
-            
+
             List<string> acclist = new List<string>();
 
             foreach (DataRow dr in dt.Rows)
@@ -188,5 +224,24 @@ namespace Accounting.dbSource
             }
             return acclist;
         }
+        public static DataTable GetUser()
+        {
+            string ConnStr = dbHelper.Getconnectionstring();
+            string dbCommand =
+                @"SELECT COUNT(Name) as Name
+                  FROM UserInfo
+                 ";
+
+            try
+            {
+                return dbHelper.GetDataTable(ConnStr, dbCommand);
+            }
+            catch (Exception ex)
+            {
+                Logger.Writelog(ex);
+                return null;
+            }
+        }
+
     }
 }

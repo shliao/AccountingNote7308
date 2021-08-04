@@ -13,22 +13,18 @@ namespace AccountingNote7308
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
-            var dt1 = DfManager.GetStbkpg();
-            var dt2 = DfManager.GetEdbkpg();
-            var dt3 = DfManager.GetCount();
-            var dt4 = DfManager.GetMembers();
+            var dt1 = AccountingManager.GetStartData();
+            var dt2 = AccountingManager.GetEndData();
+            var dt3 = AccountingManager.GetDataCount();
+            var dt4 = UserInfoManager.GetUser();
 
-            var dt5 = dt3.Rows[0]["Amount"].ToString();
-            var dt6 = dt4.Rows[0]["Name"].ToString();
+            var datacount = dt3.Rows[0]["Amount"].ToString();
+            var usercount = dt4.Rows[0]["Name"].ToString();
 
-            this.ltStbkpg.Text = dt1.Rows[0]["CreateDate"].ToString();
-            this.ltEdbkpg.Text = dt2.Rows[0]["CreateDate"].ToString();
-            this.ltcount.Text = $"共{dt5}筆";
-            this.ltMembers.Text = $"共{dt6}人";
+            this.firstdatalb.Text = dt1.Rows[0]["CreateDate"].ToString();
+            this.enddatalb.Text = dt2.Rows[0]["CreateDate"].ToString();
+            this.datacountlb.Text = $"共{datacount}筆";
+            this.userlb.Text = $"共{usercount}人";
         }
-
-       
-        protected void btnLogin_Click(object sender, EventArgs e){}
     }
 }
