@@ -32,5 +32,5 @@
         </tr>
     </table>
     <asp:Literal ID="LitMsg" runat="server"></asp:Literal><br />
-    <asp:Button ID="pwdbtn" runat="server" Text="變更密碼" />
+    <asp:Button ID="pwdbtn" runat="server" Text="變更密碼" OnClick="pwdbtn_Click"/>
 </asp:Content>

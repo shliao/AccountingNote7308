@@ -107,7 +107,7 @@ namespace AccountingNote7308.SystemAdmin
                     if (string.Compare(listuser, acctxt, true) == 0)
                     {
                         this.LitMsg.Visible = true;
-                        this.LitMsg.Text = "帳號已存在.";
+                        this.LitMsg.Text = "<span style='color:red'>帳號已存在</span>";
                         return;
                     }
                 }
@@ -116,7 +116,16 @@ namespace AccountingNote7308.SystemAdmin
             }
             else
             {
-                UserInfoManager.UpdateUser(uidtxt, nametxt, emailtxt);
+                if (string.Compare(uid, uidtxt, true) == 0)
+                {
+                    UserInfoManager.UpdateUser(uidtxt, nametxt, emailtxt);
+                }
+                else
+                {
+                    this.LitMsg.Visible = true;
+                    this.LitMsg.Text = "<span style='color:red'>只能修改現在登入的帳號</span>";
+                    return;
+                }
             }
 
             Response.Redirect("/SystemAdmin/UserList.aspx");
@@ -128,19 +137,19 @@ namespace AccountingNote7308.SystemAdmin
             if (this.ddl_Level.SelectedValue != "0" &&
                 this.ddl_Level.SelectedValue != "1")
             {
-                msgList.Add("必須是管理者或一般會員.");
+                msgList.Add("<span style='color:red'>必須是管理者或一般會員</span>");
             }
             if (string.IsNullOrWhiteSpace(this.acctxtbox.Text))
             {
-                msgList.Add("必須有帳號名稱.");
+                msgList.Add("<span style='color:red'>必須是帳號名稱</span>");
             }
             if (string.IsNullOrWhiteSpace(this.nametxtbox.Text))
             {
-                msgList.Add("必須有名稱.");
+                msgList.Add("<span style='color:red'>必須是名稱</span>");
             }
             if (string.IsNullOrWhiteSpace(this.emailtxtbox.Text))
             {
-                msgList.Add("必須填入Email.");
+                msgList.Add("<span style='color:red'>必須填入Email</span>");
             }
             errorMsgList = msgList;
 
@@ -149,10 +158,13 @@ namespace AccountingNote7308.SystemAdmin
             else
                 return false;
         }
-
         protected void returnbtn_Click(object sender, EventArgs e)
         {
             Response.Redirect("/SystemAdmin/UserList.aspx");
+        }
+        protected void pwdbtn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("UserPassword.aspx");
         }
     }
 }
