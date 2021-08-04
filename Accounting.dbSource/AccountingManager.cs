@@ -66,23 +66,5 @@ namespace Accounting.dbSource
                 return null;
             }
         }
-        public static DataTable GetUser()
-        {
-            string ConnStr = dbHelper.Getconnectionstring();
-            string dbCommand =
-                @"SELECT COUNT(Name) as Name
-                  FROM UserInfo
-                 ";
-
-            try
-            {
-                return dbHelper.GetDataTable(ConnStr, dbCommand);
-            }
-            catch (Exception ex)
-            {
-                Logger.Writelog(ex);
-                return null;
-            }
-        }
     }
 }

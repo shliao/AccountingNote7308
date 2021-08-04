@@ -173,7 +173,6 @@ namespace Accounting.dbSource
                 return false;
             }
         }
-
         public static bool UpdatePWD(string Account, string PWD)
         {
             string connStr = dbHelper.Getconnectionstring();
@@ -210,7 +209,6 @@ namespace Accounting.dbSource
                 }
             }
         }
-
         public static List<string> GetAllAccountList()
         {
             DataTable dt = GetAllAccount();
@@ -226,5 +224,24 @@ namespace Accounting.dbSource
             }
             return acclist;
         }
+        public static DataTable GetUser()
+        {
+            string ConnStr = dbHelper.Getconnectionstring();
+            string dbCommand =
+                @"SELECT COUNT(Name) as Name
+                  FROM UserInfo
+                 ";
+
+            try
+            {
+                return dbHelper.GetDataTable(ConnStr, dbCommand);
+            }
+            catch (Exception ex)
+            {
+                Logger.Writelog(ex);
+                return null;
+            }
+        }
+
     }
 }

@@ -13,7 +13,6 @@
             <tr><td><h1>流水帳管理系統</h1></td><td>&nbsp&nbsp&nbsp&nbsp<a href="Default.aspx">登入系統</a></td></tr>
         </table>
         <h3>登入</h3>
-        <asp:PlaceHolder ID="plcLogin" runat="server" Visible="false"></asp:PlaceHolder>
         Account:<asp:TextBox ID="txtAccount" runat="server"></asp:TextBox>
         <br />
         Password<asp:TextBox ID="txtPWD" runat="server" TextMode="Password"></asp:TextBox>

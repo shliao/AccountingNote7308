@@ -18,14 +18,14 @@
                         <tr>
                             <th>初次記帳</th>
                             <td>
-                                <asp:Literal ID="ltStbkpg" runat="server"></asp:Literal>
+                                <asp:Literal ID="firstdatalb" runat="server"></asp:Literal>
                             </td>
                         </tr>
 
                         <tr>
                             <th>最後記帳</th>
                             <td>
-                                <asp:Literal ID="ltEdbkpg" runat="server"></asp:Literal>
+                                <asp:Literal ID="enddatalb" runat="server"></asp:Literal>
                             </td>
                         </tr>
 
@@ -33,14 +33,14 @@
                             <th>記帳數量</th>
 
                             <td>
-                                <asp:Literal ID="ltcount" runat="server"></asp:Literal>
+                                <asp:Literal ID="datacountlb" runat="server"></asp:Literal>
                             </td>
                         </tr>
 
                          <tr>
                             <th>會員數</th>
                             <td>
-                                <asp:Literal ID="ltMembers" runat="server"></asp:Literal>
+                                <asp:Literal ID="userlb" runat="server"></asp:Literal>
                             </td>
                         </tr>
 
