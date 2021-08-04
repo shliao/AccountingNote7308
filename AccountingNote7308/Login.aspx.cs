@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AccountingNote.Auth;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -15,26 +16,32 @@ namespace AccountingNote7308
             if (this.Session["UserLoginInfo"] != null)
             {
                 this.plcLogin.Visible = false;
-                Response.Redirect("./SystemAdmin/UserInfo.aspx");
+                Response.Redirect("SystemAdmin / Userinfo.aspx");
             }
             else
             {
                 this.plcLogin.Visible = true;
             }
         }
-        protected void Loginbtn_Click(object sender, EventArgs e)
-        {
-            string inp_Account = this.txtAccount.Text;
-            string inp_PWD = this.txtPWD.Text;
-            string errorMsg;
 
-            if (!AuthManager.tryLogin(inp_Account, inp_PWD, out errorMsg))
+        protected void btnLogin_Click(object sender, EventArgs e)
+        {
+            string inp_Account = this.txtAccount.Text; 
+            string inp_PWD = this.txtPWD.Text;
+
+            string msg;
+            if (!AuthManager.tryLogin(inp_Account, inp_PWD, out msg))
             {
-                this.LiteralMsg.Text = errorMsg;
+                this.ltlMsg.Text = msg;
                 return;
             }
-            else
-                Response.Redirect("./SystemAdmin/UserInfo.aspx");
+
+            Response.Redirect("/SystemAdmin/UserInfo.aspx");
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

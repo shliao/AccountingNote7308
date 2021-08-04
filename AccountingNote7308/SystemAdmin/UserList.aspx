@@ -9,7 +9,7 @@
     <table>
         <tr>
             <td>
-                <asp:Button ID="addUserbtn" runat="server" Text="Add User" /><br />
+                <asp:Button ID="addUserbtn" runat="server" Text="Add User" OnClick="addUserbtn_Click" /><br />
                 <asp:GridView ID="GV_UserList" runat="server" AutoGenerateColumns="False"
                     OnRowDataBound="GV_UserList_RowDataBound" CellPadding="4" ForeColor="#333333" GridLines="None">
                     <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
@@ -25,7 +25,7 @@
                         <asp:BoundField HeaderText="建立時間" DataField="CreateDate"/>
                         <asp:TemplateField HeaderText="Act">
                             <ItemTemplate>
-                                <a href="UserDetail.aspx">Edit</a>
+                                <a href="UserDetail.aspx?UID=<%# Eval("ID") %>">Edit</a>
                             </ItemTemplate>
                         </asp:TemplateField>
                     </Columns>

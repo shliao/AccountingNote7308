@@ -15,6 +15,15 @@ namespace AccountingNote7308
     {
 
         /// <summary>
+        /// form1 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+
+        /// <summary>
         /// plcLogin 控制項。
         /// </summary>
         /// <remarks>
@@ -42,21 +51,21 @@ namespace AccountingNote7308
         protected global::System.Web.UI.WebControls.TextBox txtPWD;
 
         /// <summary>
-        /// Loginbtn 控制項。
+        /// btnLogin 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Loginbtn;
+        protected global::System.Web.UI.WebControls.Button btnLogin;
 
         /// <summary>
-        /// LiteralMsg 控制項。
+        /// ltlMsg 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal LiteralMsg;
+        protected global::System.Web.UI.WebControls.Literal ltlMsg;
     }
 }

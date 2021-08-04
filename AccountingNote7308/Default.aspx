@@ -9,10 +9,42 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
-            <p>測試</p>
-            <a href="Login.aspx">Login</a>
-        </div>
+        <table colspan="2">
+            <tr><td><h1>流水帳管理系統</h1></td><td>&nbsp&nbsp&nbsp&nbsp<a href="Login.aspx">登入系統</a></td></tr>
+        </table>
+        <br />
+        <br />
+  <table>
+                        <tr>
+                            <th>初次記帳</th>
+                            <td>
+                                <asp:Literal ID="ltStbkpg" runat="server"></asp:Literal>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th>最後記帳</th>
+                            <td>
+                                <asp:Literal ID="ltEdbkpg" runat="server"></asp:Literal>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th>記帳數量</th>
+
+                            <td>
+                                <asp:Literal ID="ltcount" runat="server"></asp:Literal>
+                            </td>
+                        </tr>
+
+                         <tr>
+                            <th>會員數</th>
+                            <td>
+                                <asp:Literal ID="ltMembers" runat="server"></asp:Literal>
+                            </td>
+                        </tr>
+
+              </table>
     </form>
 </body>
 </html>
