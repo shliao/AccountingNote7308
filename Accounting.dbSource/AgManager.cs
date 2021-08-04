@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Accounting.dbSource
 {
-    public class AccountingManager
+    public class AgManager
     {
         
         public static DataTable GetAccountingList(string userID)  

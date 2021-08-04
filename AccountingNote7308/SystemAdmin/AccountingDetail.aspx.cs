@@ -40,7 +40,7 @@ namespace AccountingNote7308.SystemAdmin
                     int id;
                     if (int.TryParse(idText, out id))
                     {
-                        var drAccounting = AccountingManager.GetAccounting(id, drUserInfo["ID"].ToString());  
+                        var drAccounting = AgManager.GetAccounting(id, drUserInfo["ID"].ToString());  
 
 
                         if (drAccounting == null)
@@ -91,14 +91,14 @@ namespace AccountingNote7308.SystemAdmin
             string idText = this.Request.QueryString["ID"];
             if (string.IsNullOrWhiteSpace(idText))
             {
-                AccountingManager.CreateAccounting(userID, caption, amount, actType, body);
+                AgManager.CreateAccounting(userID, caption, amount, actType, body);
             }
             else
             {
                 int id;
                 if (int.TryParse(idText, out id))
                 {
-                    AccountingManager.UpdaateAccounting(id, userID, caption, amount, actType, body);
+                    AgManager.UpdaateAccounting(id, userID, caption, amount, actType, body);
                 }
             }
 
@@ -149,7 +149,7 @@ namespace AccountingNote7308.SystemAdmin
             int id;
             if (int.TryParse(idText, out id))
             {
-                AccountingManager.DeleteAccounting(id);
+                AgManager.DeleteAccounting(id);
             }
 
             Response.Redirect("/SystemAdmin/AccountingList.aspx");

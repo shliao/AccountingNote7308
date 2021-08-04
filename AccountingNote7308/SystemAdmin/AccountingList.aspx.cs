@@ -25,7 +25,7 @@ namespace AccountingNote7308.SystemAdmin
                     return;
                 }
 
-                var dt = AccountingManager.GetAccountingList(dr["ID"].ToString());
+                var dt = AgManager.GetAccountingList(dr["ID"].ToString());
 
                 if (dt.Rows.Count > 0)                   
                 {
