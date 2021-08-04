@@ -22,7 +22,7 @@
         </tr>
         <br />
         <tr>
-            <th>確認密碼:</th>
+            <th>確認新密碼:</th>
             <td>
                 <asp:TextBox ID="txbNewPWD_Check" runat="server" TextMode="Password"></asp:TextBox></td>
         </tr>
