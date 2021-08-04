@@ -8,6 +8,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using AccountingNote;
 
 namespace AccountingNote7308.SystemAdmin
 {
@@ -33,7 +34,6 @@ namespace AccountingNote7308.SystemAdmin
 
             this.ltAccount.Text = dr["Account"].ToString();
         }
-
         protected void btnChange_Click(object sender, EventArgs e)
         {
             string account = this.Session["UserLoginInfo"] as string;
@@ -51,29 +51,24 @@ namespace AccountingNote7308.SystemAdmin
             string dbPWD = dr["PWD"].ToString();
             string iptPWD = txbPWD.Text;
 
-            if (dbPWD == iptPWD)
+            if (string.Compare(dbPWD, iptPWD, true) == 0)
             {
                 this.txbPWD.Text = dr["PWD"].ToString();
+
+                string iptNewPWD = txbNewPWD.Text;
+                string iptNewPWD_Check = txbNewPWD_Check.Text;
+
+                if (string.Compare(iptNewPWD, iptNewPWD_Check, true) == 0)
+                {
+                    UserInfoManager.UpdatePWD(dr["Account"].ToString(), iptNewPWD_Check);
+                    this.Session["UserLoginInfo"] = null;
+                    Response.Redirect("/Login.aspx");
+                    return;
+                }
             }
             else
             {
                 this.txbPWD.Text = string.Empty;
-                Response.Redirect("UserPassword.aspx");
-                return;
-            }
-
-            string iptNewPWD = txbNewPWD.Text;
-            string iptNewPWD_Check = txbNewPWD_Check.Text;
-
-            if (iptNewPWD == iptNewPWD_Check)
-            {
-                UserInfoManager.UpdatePWD(dr["Account"].ToString(), iptNewPWD_Check);
-                this.Session["UserLoginInfo"] = null;
-                Response.Redirect("/Login.aspx");
-                return;
-            }
-            else
-            {
                 this.txbNewPWD.Text = string.Empty;
                 this.txbNewPWD_Check.Text = string.Empty;
                 Response.Redirect("UserPassword.aspx");
