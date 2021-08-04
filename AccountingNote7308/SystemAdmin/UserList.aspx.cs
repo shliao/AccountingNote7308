@@ -21,7 +21,6 @@ namespace AccountingNote7308.SystemAdmin
             }
 
             var currentUser = AuthManager.GetCurrentUser();
-            string uid = currentUser.ID;
 
             if (currentUser == null)
             {
@@ -29,6 +28,7 @@ namespace AccountingNote7308.SystemAdmin
                 return;
             }
 
+            string uid = currentUser.ID;
             var dt = UserInfoManager.GetUserInfoList_Order();
 
             if (dt.Rows.Count > 0)

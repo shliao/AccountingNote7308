@@ -63,15 +63,26 @@ namespace AccountingNote7308.SystemAdmin
         }
         protected void Deletebtn_Click(object sender, EventArgs e)
         {
-            string uid = this.Request.QueryString["UID"];
+            var currentUser = AuthManager.GetCurrentUser();
+
+            string uidtxt = this.Request.QueryString["UID"];
+            string uid = currentUser.ID;
 
             if (string.IsNullOrWhiteSpace(uid))
             { return; }
             else
             {
-                UserInfoManager.DeleteUser(uid);
+                if (string.Compare(uid, uidtxt, true) == 0)
+                {
+                    UserInfoManager.DeleteUser(uid);
+                }
+                else
+                {
+                    this.LitMsg.Visible = true;
+                    this.LitMsg.Text = "<span style='color:red'>只能修改現在登入的帳號</span>";
+                    return;
+                }
             }
-            Response.Redirect("/SystemAdmin/UserList.aspx");
 
         }
         protected void Savebtn_Click(object sender, EventArgs e)
