@@ -4,13 +4,21 @@
 
 <html>
 <head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title></title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
     <form id="form1" runat="server">
+        <table colspan="2">
+            <tr>
+                <td>
+                    <h1>流水帳管理系統</h1>
+                </td>
+                <td>&nbsp&nbsp&nbsp&nbsp<a href="Login.aspx">登入系統</a>&nbsp&nbsp<a href="Default.aspx">返回主頁</a></td>
+            </tr>
+        </table>
         <div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>

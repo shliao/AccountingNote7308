@@ -1,10 +1,10 @@
-﻿using System;
+﻿using AccountingNote.Auth;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using AccountingNote.Auth;
 
 namespace AccountingNote7308
 {
@@ -12,10 +12,12 @@ namespace AccountingNote7308
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
         }
+
         protected void btnLogin_Click(object sender, EventArgs e)
         {
-            string inp_Account = this.txtAccount.Text; 
+            string inp_Account = this.txtAccount.Text;
             string inp_PWD = this.txtPWD.Text;
 
             string errormsg;
