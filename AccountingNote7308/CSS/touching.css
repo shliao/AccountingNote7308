@@ -3,7 +3,7 @@
 
 body {
     background: #E7E7E7 url('body.jpg') top left;
-    font-size: 14px;
+    font-size: 12px;
     font-family: Verdana, Arial, SunSans-Regular, Sans-Serif;
     color: #564b47;
     padding: 0px;
@@ -83,6 +83,7 @@ img.download {
     padding: 20px;
     margin-left: 200px;
     margin-right: 0px;
+    font-size: 16px;
 }
 
 div#content {

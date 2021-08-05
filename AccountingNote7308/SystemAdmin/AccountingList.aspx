@@ -10,7 +10,7 @@
                 <tb>
                     <asp:Button ID="btnCreate" runat="server" Text="新增項目" OnClick="btnCreate_Click" />
                 </tb>
-                <span style="margin-left: 250px">
+                <span style="margin-left: 170px">
                     <asp:Literal ID="ltMsg" runat="server"></asp:Literal>
                 </span>
                 <tb>
