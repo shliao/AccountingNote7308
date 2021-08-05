@@ -73,8 +73,8 @@ namespace AccountingNote7308.SystemAdmin
                 if (iptNewPWD == iptNewPWD_Check)
                 {
                     UserInfoManager.UpdatePWD(dr["Account"].ToString(), iptNewPWD_Check);
-                    this.Session["UserLoginInfo"] = null;
-                    Response.Redirect("/Login.aspx");
+                    //this.Session["UserLoginInfo"] = null;
+                    Response.Redirect("UserList.aspx");
                     return;
                 }
                 else
@@ -100,6 +100,18 @@ namespace AccountingNote7308.SystemAdmin
             if (string.IsNullOrWhiteSpace(this.txbNewPWD_Check.Text.Trim()) || string.IsNullOrEmpty(this.txbNewPWD_Check.Text.Trim()))
             {
                 msgList.Add("<span style='color:red'>請輸入確認密碼。</span>");
+            }
+            if(this.txbPWD.Text.Length < 8)
+            {
+                msgList.Add("<span style='color:red'>請確認原密碼長度 8 ~ 16 碼。</span>");
+            }
+            if (this.txbNewPWD.Text.Length < 8)
+            {
+                msgList.Add("<span style='color:red'>請確認新密碼長度 8 ~ 16 碼。</span>");
+            }
+            if (this.txbNewPWD_Check.Text.Length < 8)
+            {
+                msgList.Add("<span style='color:red'>請確認新密碼長度 8 ~ 16 碼。</span>");
             }
             errorMsgList = msgList;
 

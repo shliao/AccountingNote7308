@@ -13,14 +13,14 @@
         <tr>
             <th>原密碼:</th>
             <td>
-                <asp:TextBox ID="txbPWD" runat="server" TextMode="Password"></asp:TextBox>
+                <asp:TextBox ID="txbPWD" runat="server" TextMode="Password" MaxLength="16"></asp:TextBox>
                 <asp:Literal ID="ltlMsg" runat="server"></asp:Literal>
             </td>
         </tr>
         <tr>
             <th>新密碼:</th>
             <td>
-                <asp:TextBox ID="txbNewPWD" runat="server" TextMode="Password"></asp:TextBox>
+                <asp:TextBox ID="txbNewPWD" runat="server" TextMode="Password" MaxLength="16"></asp:TextBox>
                 <asp:Literal ID="ltlMsg2" runat="server"></asp:Literal>
             </td>
         </tr>
@@ -28,7 +28,7 @@
         <tr>
             <th>確認新密碼:</th>
             <td>
-                <asp:TextBox ID="txbNewPWD_Check" runat="server" TextMode="Password"></asp:TextBox></td>
+                <asp:TextBox ID="txbNewPWD_Check" runat="server" TextMode="Password" MaxLength="16"></asp:TextBox></td>
         </tr>
     </table>
     <br />
