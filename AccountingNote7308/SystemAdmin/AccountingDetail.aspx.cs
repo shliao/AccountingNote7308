@@ -45,7 +45,7 @@ namespace AccountingNote7308.SystemAdmin
                     int id;
                     if (int.TryParse(idText, out id))
                     {
-                        var drAccounting = AgManager.GetAccounting(id, currentUser.ID);
+                        var drAccounting = AccountingManager.GetAccounting(id, currentUser.ID);
 
 
                         if (drAccounting == null)
