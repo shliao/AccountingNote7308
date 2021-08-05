@@ -7,7 +7,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h2>會員管理</h2>
-    <table>
+    <table border-cpllaspse="collapse">
         <tr>
             <td>
                 <asp:Button ID="addUserbtn" runat="server" Text="新增使用者" OnClick="addUserbtn_Click" /><br />

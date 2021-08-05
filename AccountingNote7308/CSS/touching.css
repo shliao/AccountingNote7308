@@ -112,7 +112,7 @@ background:  url('footer.gif') repeat-x ;
 }
 
  .verticalmenu li, a:link, .verticalmenu a:visited, .verticalmenu a:hover {
-   display: block;
+   /*display: block;*/
    font: bold 1.1em Verdana, Arial, Helvetica, sans-serif;
    color: #9A1212;
    text-decoration: none;

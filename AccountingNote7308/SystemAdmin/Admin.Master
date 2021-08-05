@@ -18,7 +18,7 @@
     <form id="form1" runat="server">
         <div id="container">
             <div id="banner">
-                <div id='bannertitle'>流水帳管理系統 - 後台</div>
+                <div id='bannertitle' aria-multiline="False" aria-orientation="horizontal">流水帳管理系統 - 後台</div>
             </div>
             <div id="outer">
                 <div id="inner">
@@ -27,7 +27,7 @@
                             <ul>
                                 <li><a href="UserInfo.aspx">使用者資訊</a></li>
                                 <li><a href="AccountingList.aspx">流水帳管理</a></li>
-                                <li><a href="UserList.aspx">會員管理</a></li>
+                                <li><a href="UserList.aspx" aria-multiline="False">會員管理</a></li>
                             </ul>
                         </div>
                     </div>
