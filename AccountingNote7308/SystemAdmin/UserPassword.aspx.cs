@@ -89,15 +89,15 @@ namespace AccountingNote7308.SystemAdmin
         {
             List<string> msgList = new List<string>();
 
-            if (string.IsNullOrWhiteSpace(this.txbPWD.Text) && string.IsNullOrEmpty(this.txbPWD.Text))
+            if (string.IsNullOrWhiteSpace(this.txbPWD.Text.Trim()) || string.IsNullOrEmpty(this.txbPWD.Text.Trim()))
             {
                 msgList.Add("<span style='color:red'>請輸入原密碼。</span>");
             }
-            if (string.IsNullOrWhiteSpace(this.txbNewPWD.Text) && string.IsNullOrEmpty(this.txbNewPWD.Text))
+            if (string.IsNullOrWhiteSpace(this.txbNewPWD.Text.Trim()) || string.IsNullOrEmpty(this.txbNewPWD.Text.Trim()))
             {
                 msgList.Add("<span style='color:red'>請輸入新密碼。</span>");
             }
-            if (string.IsNullOrWhiteSpace(this.txbNewPWD_Check.Text) && string.IsNullOrEmpty(this.txbNewPWD_Check.Text))
+            if (string.IsNullOrWhiteSpace(this.txbNewPWD_Check.Text.Trim()) || string.IsNullOrEmpty(this.txbNewPWD_Check.Text.Trim()))
             {
                 msgList.Add("<span style='color:red'>請輸入確認密碼。</span>");
             }

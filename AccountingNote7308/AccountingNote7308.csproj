@@ -67,6 +67,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="CSS\body.jpg" />
+    <Content Include="CSS\content.jpg" />
+    <Content Include="CSS\footer.gif" />
+    <Content Include="CSS\header.jpg" />
+    <Content Include="CSS\index.html" />
+    <Content Include="CSS\menubottom.jpg" />
+    <Content Include="CSS\menuhover.gif" />
+    <Content Include="CSS\touching.css" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Login.aspx" />
