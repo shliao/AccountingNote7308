@@ -38,8 +38,8 @@ namespace AccountingNote7308.SystemAdmin
                 this.GV_UserList.DataSource = dtPaged;
                 this.GV_UserList.DataBind();
 
-                this.ucPager.TotalSize = dt.Rows.Count;
-                this.ucPager.Bind();
+                this.ucPager_UserList.TotalSize = dt.Rows.Count;
+                this.ucPager_UserList.Bind();
             }
             else
             {

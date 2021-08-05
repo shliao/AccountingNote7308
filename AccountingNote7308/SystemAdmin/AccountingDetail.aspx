@@ -5,21 +5,21 @@
     <table>
             <tr>
                 <td>
-                    Type:
+                    類別:
                     <asp:DropDownList ID="ddIActType" runat="server">
                         <asp:ListItem Value="0">支出</asp:ListItem>
                         <asp:ListItem Value="1">收入</asp:ListItem>
                     </asp:DropDownList>
                     <br />
-                    Amount:
+                    金額:
                     <asp:TextBox ID="txtAmount" runat="server" TextMode="Number"></asp:TextBox> <br />
-                    Caption:
+                    標題:
                     <asp:TextBox ID="txtCaption" runat="server"></asp:TextBox><br />
-                    Desc:
+                    說明:
                     <asp:TextBox ID="txtDesc" runat="server" TextMode="MultiLine"></asp:TextBox><br />
-                    <asp:Button ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click" /><br />
-                    <asp:Button ID="btnDelete" runat="server" Text="Del" OnClick="btnDelete_Click" />
-                    <asp:Literal ID="ltMsg" runat="server"></asp:Literal>
+                    <asp:Literal ID="ltMsg" runat="server"></asp:Literal><br />
+                    <asp:Button ID="btnSave" runat="server" Text="保存" OnClick="btnSave_Click" />&nbsp;&nbsp;
+                    <asp:Button ID="btnDelete" runat="server" Text="刪除" OnClick="btnDelete_Click" />
                 </td>
             </tr>
         </table>

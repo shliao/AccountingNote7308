@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SystemAdmin/Admin.Master" AutoEventWireup="true" CodeBehind="UserList.aspx.cs" Inherits="AccountingNote7308.SystemAdmin.UserList" %>
 
-<%@ Register Src="~/UserControl/ucPager.ascx" TagPrefix="uc1" TagName="ucPager" %>
+<%@ Register Src="~/UserControl/ucPager_UserList.ascx" TagPrefix="uc1" TagName="ucPager_UserList" %>
+
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -9,7 +10,7 @@
     <table>
         <tr>
             <td>
-                <asp:Button ID="addUserbtn" runat="server" Text="Add User" OnClick="addUserbtn_Click" /><br />
+                <asp:Button ID="addUserbtn" runat="server" Text="新增使用者" OnClick="addUserbtn_Click" /><br />
                 <asp:GridView ID="GV_UserList" runat="server" AutoGenerateColumns="False"
                     OnRowDataBound="GV_UserList_RowDataBound" CellPadding="4" ForeColor="#333333" GridLines="None">
                     <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
@@ -23,9 +24,9 @@
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:BoundField HeaderText="建立時間" DataField="CreateDate"/>
-                        <asp:TemplateField HeaderText="Act">
+                        <asp:TemplateField HeaderText="編輯">
                             <ItemTemplate>
-                                <a href="UserDetail.aspx?UID=<%# Eval("ID") %>">Edit</a>
+                                <a href="UserDetail.aspx?UID=<%# Eval("ID") %>">編輯</a>
                             </ItemTemplate>
                         </asp:TemplateField>
                     </Columns>
@@ -41,7 +42,7 @@
                     <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
                 </asp:GridView>
                 <asp:PlaceHolder ID="plc_noUser" runat="server" Visible="False">No User.</asp:PlaceHolder>
-                <uc1:ucPager runat="server" id="ucPager" Url="UserList.aspx" PageSize="10"/>
+                <uc1:ucPager_UserList runat="server" ID="ucPager_UserList" Url="/SystemAdmin/UserList.aspx" PageSize="10"/>
             </td>
         </tr>
     </table>
