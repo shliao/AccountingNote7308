@@ -51,7 +51,7 @@ namespace AccountingNote.Auth
         {
             if (string.IsNullOrWhiteSpace(account) || string.IsNullOrWhiteSpace(pwd))
             {
-                errorMsg = "Account / Password is needed.";
+                errorMsg = "請輸入帳號和密碼。";
                 return false;
             }
 
@@ -59,7 +59,7 @@ namespace AccountingNote.Auth
 
             if (dr == null)
             {
-                errorMsg = "Account is not exist.";
+                errorMsg = "帳號輸入錯誤。";
                 return false;
             }
 
@@ -72,7 +72,7 @@ namespace AccountingNote.Auth
             }
             else
             {
-                errorMsg = "Login Fail.Please check Account / Password.";
+                errorMsg = "登入失敗，請重新確認帳號與密碼。";
                 return false;
             }
         }

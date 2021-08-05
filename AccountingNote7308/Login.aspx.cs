@@ -23,7 +23,7 @@ namespace AccountingNote7308
             string errormsg;
             if (!AuthManager.tryLogin(inp_Account, inp_PWD, out errormsg))
             {
-                this.ltlMsg.Text = errormsg;
+                this.ltlMsg.Text = $"<span style='color:red'>{errormsg}</span>";
                 return;
             }
 
