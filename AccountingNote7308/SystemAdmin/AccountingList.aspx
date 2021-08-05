@@ -9,7 +9,7 @@
              <tb>
             <asp:Button ID="btnCreate" runat="server" Text="Add Accounting" OnClick="btnCreate_Click"/>
              </tb>
-               <span style="margin-left:130px">
+               <span style="margin-left:158px">
             <asp:Literal ID="ltMsg" runat="server"></asp:Literal>
                </span>
            <tb>
