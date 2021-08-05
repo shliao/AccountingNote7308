@@ -5,10 +5,15 @@
     <table>
         <tr> 
            <td>
-            <asp:Button ID="btnCreate" runat="server" Text="Add Accounting" OnClick="btnCreate_Click" />
-             
-            <asp:GridView ID="gvAccountingList" runat="server" AutoGenerateColumns="False" OnRowDataBound="gvAccountingList_RowDataBound" CellPadding="4" ForeColor="#333333" GridLines="None" >
-                <AlternatingRowStyle BackColor="White" />
+
+             <tb>
+            <asp:Button ID="btnCreate" runat="server" Text="Add Accounting" OnClick="btnCreate_Click"/>
+             </tb>
+               <span style="margin-left:130px">
+            <asp:Literal ID="ltMsg" runat="server"></asp:Literal>
+               </span>
+           <tb>
+            <asp:GridView ID="gvAccountingList" runat="server" AutoGenerateColumns="false" OnRowDataBound="gvAccountingList_RowDataBound" >
             <Columns>
                 <asp:BoundField HeaderText="標題" DataField="Caption"/>
                 <asp:BoundField HeaderText="金額" DataField="Amount"/>

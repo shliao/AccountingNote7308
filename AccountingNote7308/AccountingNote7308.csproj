@@ -84,7 +84,7 @@
     <Content Include="SystemAdmin\UserInfo.aspx" />
     <Content Include="SystemAdmin\UserList.aspx" />
     <Content Include="SystemAdmin\UserPassword.aspx" />
-    <Content Include="UserControl\ucPager.ascx" />
+    <Content Include="UserControl\ucPager_UserList.ascx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -162,12 +162,12 @@
     <Compile Include="SystemAdmin\UserPassword.aspx.designer.cs">
       <DependentUpon>UserPassword.aspx</DependentUpon>
     </Compile>
-    <Compile Include="UserControl\ucPager.ascx.cs">
-      <DependentUpon>ucPager.ascx</DependentUpon>
+    <Compile Include="UserControl\ucPager_UserList.ascx.cs">
+      <DependentUpon>ucPager_UserList.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="UserControl\ucPager.ascx.designer.cs">
-      <DependentUpon>ucPager.ascx</DependentUpon>
+    <Compile Include="UserControl\ucPager_UserList.ascx.designer.cs">
+      <DependentUpon>ucPager_UserList.ascx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

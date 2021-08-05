@@ -11,7 +11,46 @@ namespace Accounting.dbSource
 {
     public class AgManager
     {
-        
+        public static DataTable GetIncome ()
+        {
+            string ConnStr = dbHelper.Getconnectionstring();
+            string dbCommand =
+                @"SELECT SUM (Amount) AS 'AT'
+                  FROM Accounting
+                  WHERE ActType='1'
+                 ";
+
+            try
+            {
+                return dbHelper.GetDataTable(ConnStr, dbCommand);
+            }
+            catch (Exception ex)
+            {
+                Logger.Writelog(ex);
+                return null;
+            }
+        }
+
+        public static DataTable GetExpenses ()
+        {
+            string ConnStr = dbHelper.Getconnectionstring();
+            string dbCommand =
+                @"SELECT SUM (Amount) AS 'ATS'
+                  FROM Accounting
+                  WHERE ActType='0'
+                 ";
+
+            try
+            {
+                return dbHelper.GetDataTable(ConnStr, dbCommand);
+            }
+            catch (Exception ex)
+            {
+                Logger.Writelog(ex);
+                return null;
+            }
+        }
+
         public static DataTable GetAccountingList(string userID)  
         {
             string ConnStr = dbHelper.Getconnectionstring(); 
@@ -23,7 +62,8 @@ namespace Accounting.dbSource
                      ActType,
                      CreateDate
                    FROM Accounting
-                   WHERE UserID = @userID
+                   [WHERE UserID = @userID]
+                  ORDER BY CreateDate DESC
                  ";
 
             using (SqlConnection conn = new SqlConnection(ConnStr))
