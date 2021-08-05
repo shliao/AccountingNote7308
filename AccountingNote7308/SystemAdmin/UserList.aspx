@@ -15,15 +15,15 @@
                     OnRowDataBound="GV_UserList_RowDataBound" CellPadding="4" ForeColor="#333333" GridLines="None">
                     <AlternatingRowStyle BackColor="White" />
                     <Columns>
-                        <asp:BoundField HeaderText="帳號" DataField="Account"/>
-                        <asp:BoundField HeaderText="名稱" DataField="Name"/>
-                        <asp:BoundField HeaderText="Email" DataField="Email"/>
+                        <asp:BoundField HeaderText="帳號" DataField="Account" />
+                        <asp:BoundField HeaderText="名稱" DataField="Name" />
+                        <asp:BoundField HeaderText="Email" DataField="Email" />
                         <asp:TemplateField HeaderText="等級">
                             <ItemTemplate>
                                 <asp:Literal ID="ltlLevel" runat="server"></asp:Literal>
                             </ItemTemplate>
                         </asp:TemplateField>
-                        <asp:BoundField HeaderText="建立時間" DataField="CreateDate"/>
+                        <asp:BoundField HeaderText="建立時間" DataField="CreateDate" />
                         <asp:TemplateField HeaderText="編輯">
                             <ItemTemplate>
                                 <a href="UserDetail.aspx?UID=<%# Eval("ID") %>">編輯</a>
@@ -42,7 +42,7 @@
                     <SortedDescendingHeaderStyle BackColor="#4870BE" />
                 </asp:GridView>
                 <asp:PlaceHolder ID="plc_noUser" runat="server" Visible="False">No User.</asp:PlaceHolder>
-                <uc1:ucPager_UserList runat="server" ID="ucPager_UserList" Url="/SystemAdmin/UserList.aspx" PageSize="10"/>
+                <uc1:ucPager_UserList runat="server" ID="ucPager_UserList" Url="/SystemAdmin/UserList.aspx" PageSize="10" />
             </td>
         </tr>
     </table>
