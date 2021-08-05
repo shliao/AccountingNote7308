@@ -47,7 +47,6 @@ namespace AccountingNote7308.SystemAdmin
                 this.plc_noUser.Visible = true;
             }
         }
-
         protected void addUserbtn_Click(object sender, EventArgs e)
         {
             Response.Redirect("/SystemAdmin/UserDetail.aspx");

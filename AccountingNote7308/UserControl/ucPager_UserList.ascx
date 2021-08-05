@@ -1,5 +1,4 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ucPager_UserList.ascx.cs" Inherits="AccountingNote7308.UserControl.ucPager" %>
-    <asp:Literal runat="server" ID="ltlMsg"></asp:Literal>
 
 <div>
     <a runat="server" id="aFirst" href="#">First</a>
@@ -10,7 +9,7 @@
     <a runat="server" id="a4" href="#">4</a>
     <a runat="server" id="a5" href="#">5</a>
 
-    <a runat="server" id="aLast" href="#">Last</a>
+    <a runat="server" id="aLast" href="#">Last</a><br />
 
     <asp:Literal ID="Pager_ltl" runat="server"></asp:Literal>
 </div>

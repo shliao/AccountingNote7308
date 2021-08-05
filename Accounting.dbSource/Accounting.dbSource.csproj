@@ -42,7 +42,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AgManager.cs" />
     <Compile Include="dbHelper.cs" />
     <Compile Include="AccountingManager.cs" />
     <Compile Include="Logger.cs" />
