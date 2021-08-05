@@ -16,7 +16,7 @@
                 <td>
                     <h1>流水帳管理系統</h1>
                 </td>
-                <td>&nbsp&nbsp&nbsp&nbsp<a href="Login.aspx">登入系統</a>&nbsp&nbsp<a href="Default.aspx">返回主頁</a></td>
+                <td>&nbsp&nbsp&nbsp&nbsp<a href="Login.aspx">登入系統</a><br />&nbsp&nbsp&nbsp&nbsp<a href="Default.aspx">返回主頁</a></td>
             </tr>
         </table>
         <div>

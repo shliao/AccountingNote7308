@@ -1,4 +1,5 @@
 ﻿using Accounting.dbSource;
+using AccountingNote.Auth;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -14,46 +15,34 @@ namespace AccountingNote7308.SystemAdmin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            string account = this.Session["UserLoginInfo"] as string;
-            var dr = UserInfoManager.GetUserInfobyAccount(account);
-
-            if (dr != null)
+            if (!AuthManager.Islogined())
             {
-                if (this.Session["UserLoginInfo"] == null)
-                {
-                    Response.Redirect("/Login.aspx");
-                    return;
-                }
-
-                var dt = AgManager.GetAccountingList(dr["ID"].ToString());
-
-                if (dt.Rows.Count > 0)                   
-                {
-                    this.gvAccountingList.DataSource = dt;           
-                    this.gvAccountingList.DataBind();
-
-                }
-                else
-                {
-                    this.gvAccountingList.Visible = false;     
-                    this.plcNoData.Visible = true;
-                }
-
-                var dt1 = AgManager.GetIncome();
-                var dt2 = AgManager.GetExpenses();
-
-                
-                string gi = dt1.Rows[0]["AT"].ToString();
-                string ge = dt2.Rows[0]["ATS"].ToString();
-
-                int nVl = Convert.ToInt32(gi);
-                int nV2 = Convert.ToInt32(ge);
-
-                int nVS = nVl - nV2;
-
-                this.ltMsg.Text = $"小計 {nVS} 元";
-
+                Response.Redirect("/Login.aspx");
+                return;
             }
+
+            var currentUser = AuthManager.GetCurrentUser();
+
+            if (currentUser == null)
+            {
+                Response.Redirect("/Login.aspx");
+                return;
+            }
+
+            var dt = AgManager.GetAccountingList(currentUser.ID);
+
+            if (dt.Rows.Count > 0)                    
+            {
+              
+                this.gvAccountingList.DataSource = dt;             
+                this.gvAccountingList.DataBind();
+            }
+            else
+            {
+                this.gvAccountingList.Visible = false;     
+                this.plcNoData.Visible = true;
+            }
+
         }
 
         protected void btnCreate_Click(object sender, EventArgs e)
@@ -61,7 +50,7 @@ namespace AccountingNote7308.SystemAdmin
             Response.Redirect("/SystemAdmin/AccountingDetail.aspx");
         }
 
-        protected void gvAccountingList_RowDataBound(object sender, GridViewRowEventArgs e)
+        protected void gvAccountingList_RowDataBound(object sender, GridViewRowEventArgs e) 
         {
             var row = e.Row;
             if (row.RowType == DataControlRowType.DataRow)
@@ -74,11 +63,13 @@ namespace AccountingNote7308.SystemAdmin
 
                 if (actType == 0)
                 {
+                   
                     lbl.Text = "支出";
                 }
 
                 else
                 {
+                    
                     lbl.Text = "收入";
                 }
                 if (dr.Row.Field<int>("Amount") > 1000)
@@ -87,6 +78,7 @@ namespace AccountingNote7308.SystemAdmin
                 }
 
             }
+
         }
     }
 }
