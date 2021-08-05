@@ -9,7 +9,7 @@
     <a runat="server" id="a4" href="#">4</a>
     <a runat="server" id="a5" href="#">5</a>
 
-    <a runat="server" id="aLast" href="#">Last</a><br />
-
+    <a runat="server" id="aLast" href="#">Last</a>
+    <br />
     <asp:Literal ID="Pager_ltl" runat="server"></asp:Literal>
 </div>

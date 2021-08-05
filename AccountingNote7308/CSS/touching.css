@@ -2,7 +2,7 @@
 /* css released under Creative Commons License -  http://creativecommons.org/licenses/by/2.0/deed.en  */
 
 body {
- background: #E7E7E7 url('body.jpg') top left;
+background: #E7E7E7 url('body.jpg') top left;
 font-size: 11px;
 font-family: Verdana, Arial, SunSans-Regular, Sans-Serif;
 color:#564b47;
@@ -58,12 +58,12 @@ margin: 0px;
 
 /* -----------------content--------------------- */
 #content {
-
 background:#ffffff  url('content.jpg') no-repeat top right;
 padding: 0px;
 margin-left: 200px;
 margin-right: 0px;
 }
+
 div#content { 
 min-height:600px;
 /*height:expression(this.scrollHeight > 600 ? "auto":"600px"); */
@@ -112,7 +112,7 @@ background:  url('footer.gif') repeat-x ;
 }
 
  .verticalmenu li, a:link, .verticalmenu a:visited, .verticalmenu a:hover {
-   display: block;
+   /*display: block;*/
    font: bold 1.1em Verdana, Arial, Helvetica, sans-serif;
    color: #9A1212;
    text-decoration: none;
