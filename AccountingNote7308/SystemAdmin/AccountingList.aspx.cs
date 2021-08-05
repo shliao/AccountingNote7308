@@ -31,12 +31,28 @@ namespace AccountingNote7308.SystemAdmin
                 {
                     this.gvAccountingList.DataSource = dt;           
                     this.gvAccountingList.DataBind();
+
                 }
                 else
                 {
                     this.gvAccountingList.Visible = false;     
                     this.plcNoData.Visible = true;
                 }
+
+                var dt1 = AgManager.GetIncome();
+                var dt2 = AgManager.GetExpenses();
+
+                
+                string gi = dt1.Rows[0]["AT"].ToString();
+                string ge = dt2.Rows[0]["ATS"].ToString();
+
+                int nVl = Convert.ToInt32(gi);
+                int nV2 = Convert.ToInt32(ge);
+
+                int nVS = nVl - nV2;
+
+                this.ltMsg.Text = $"小計 {nVS} 元";
+
             }
         }
 
