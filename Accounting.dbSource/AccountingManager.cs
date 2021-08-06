@@ -15,7 +15,7 @@ namespace Accounting.dbSource
             string ConnStr = dbHelper.Getconnectionstring();
             string dbCommand =
                 @"SELECT top 1 * 
-                  FROM Accounting
+                  FROM AccountingNote
                   order by CreateDate asc
                  ";
 
@@ -34,7 +34,7 @@ namespace Accounting.dbSource
             string ConnStr = dbHelper.Getconnectionstring();
             string dbCommand =
                 @"SELECT top 1 * 
-                  FROM Accounting
+                  FROM AccountingNote
                   order by CreateDate desc
                  ";
 
@@ -53,7 +53,7 @@ namespace Accounting.dbSource
             string ConnStr = dbHelper.Getconnectionstring();
             string dbCommand =
                 @"SELECT COUNT(Amount) as Amount
-                  FROM Accounting
+                  FROM AccountingNote
                  ";
 
             try
@@ -71,7 +71,7 @@ namespace Accounting.dbSource
             string ConnStr = dbHelper.Getconnectionstring();
             string dbCommand =
                 @"SELECT SUM (Amount) AS 'AT'
-                  FROM  [Accounting]
+                  FROM  [AccountingNote]
                   WHERE [ActType] = 1
                   AND   [UserID] = @userid
                  ";
@@ -94,7 +94,7 @@ namespace Accounting.dbSource
             string ConnStr = dbHelper.Getconnectionstring();
             string dbCommand =
                 @"SELECT SUM (Amount) AS 'ATS'
-                  FROM  [Accounting]
+                  FROM  [AccountingNote]
                   WHERE [ActType] = 0
                   AND   [UserID] = @userid
                  ";
@@ -122,7 +122,7 @@ namespace Accounting.dbSource
                      Amount,
                      ActType,
                      CreateDate
-                  FROM Accounting
+                  FROM AccountingNote
                   WHERE  [UserID] = @userid
                   ORDER BY CreateDate DESC
                  ";
@@ -159,7 +159,7 @@ namespace Accounting.dbSource
 
             string ConnStr = dbHelper.Getconnectionstring();
             string dbCommand =
-                $@" INSERT INTO [dbo].[Accounting]
+                $@" INSERT INTO [dbo].[AccountingNote]
                    (
                       UserID
                      ,Caption
@@ -215,7 +215,7 @@ namespace Accounting.dbSource
 
             string ConnStr = dbHelper.Getconnectionstring();
             string dbCommand =
-                $@" UPDATE [Accounting]
+                $@" UPDATE [AccountingNote]
                    SET
                       UserID     =@userID
                      ,Caption    =@caption
@@ -263,7 +263,7 @@ namespace Accounting.dbSource
         {
             string ConnStr = dbHelper.Getconnectionstring();
             string dbCommand =
-                $@" DELETE [Accounting]
+                $@" DELETE [AccountingNote]
                   
                    WHERE ID= @id";
 
@@ -300,7 +300,7 @@ namespace Accounting.dbSource
                      ActType,
                      CreateDate,
                      Body
-                   FROM Accounting
+                   FROM AccountingNote
                    WHERE id = @id AND UserID = @userID";
 
             using (SqlConnection conn = new SqlConnection(ConnStr))
